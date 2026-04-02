@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "../context/LanguageContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 const Contact = () => {
@@ -14,6 +14,17 @@ const Contact = () => {
     });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
+
+    // Load cached form data
+    useEffect(() => {
+        try {
+            const cached = localStorage.getItem('restorasibumi_form_data');
+            if (cached) {
+                const data = JSON.parse(cached);
+                setFormData(prev => ({ ...prev, name: data.name || '', email: data.email || '' }));
+            }
+        } catch { /* ignore */ }
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -38,6 +49,10 @@ const Contact = () => {
             }
 
             setStatus("success");
+            // Cache form data for next time
+            try {
+                localStorage.setItem('restorasibumi_form_data', JSON.stringify({ name: formData.name, email: formData.email }));
+            } catch { /* ignore */ }
             setFormData({ name: "", email: "", subject: "", message: "" });
 
             // Reset status after 5 seconds

@@ -66,11 +66,11 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone size={20} className="text-primary flex-shrink-0" />
-                                <span>081809786141</span>
+                                <a href="https://wa.me/6285117626252?text=Halo%20Restorasi%20Bumi%2C%20saya%20ingin%20bertanya%20tentang%20program%20Anda." className="hover:text-primary transition-colors">085117626252</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={20} className="text-primary flex-shrink-0" />
-                                <span>langkahrestorasibumi@gmail.com</span>
+                                <a href="mailto:partnership@restorasibumi.com" className="hover:text-primary transition-colors">partnership@restorasibumi.com</a>
                             </li>
                         </ul>
                     </div>

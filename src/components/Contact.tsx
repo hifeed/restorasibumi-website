@@ -67,8 +67,8 @@ const Contact = () => {
                             <p className="text-gray-600 mb-6">Kebayoran Lama, Jakarta Selatan. DKI Jakarta</p>
 
                             <div className="space-y-2">
-                                <p className="text-gray-600"><span className="font-semibold text-gray-900">{t.contact.info.email}:</span> langkahrestorasibumi@gmail.com</p>
-                                <p className="text-gray-600"><span className="font-semibold text-gray-900">{t.contact.info.phone}:</span> 081809786141</p>
+                                <p className="text-gray-600"><span className="font-semibold text-gray-900">{t.contact.info.email}:</span> <a href="mailto:partnership@restorasibumi.com" className="hover:text-primary">partnership@restorasibumi.com</a></p>
+                                <p className="text-gray-600"><span className="font-semibold text-gray-900">{t.contact.info.phone}:</span> <a href="https://wa.me/6285117626252?text=Halo%20Restorasi%20Bumi%2C%20saya%20ingin%20bertanya%20tentang%20program%20Anda." className="hover:text-primary">085117626252</a></p>
                             </div>
                         </div>
                     </div>

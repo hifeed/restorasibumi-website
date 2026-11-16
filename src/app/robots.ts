@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/api/',
         },
-        sitemap: 'https://restorasibumi.org/sitemap.xml',
-        host: 'https://restorasibumi.org',
+        sitemap: 'https://www.restorasibumi.org/sitemap.xml',
+        host: 'https://www.restorasibumi.org',
     }
 }

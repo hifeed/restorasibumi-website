@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // separate URLs for search engines, so only the root route is listed.
     return [
         {
-            url: 'https://restorasibumi.org',
+            url: 'https://www.restorasibumi.org',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1,

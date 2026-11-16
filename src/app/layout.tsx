@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const SITE_URL = "https://restorasibumi.org";
+const SITE_URL = "https://www.restorasibumi.org";
 const GA_MEASUREMENT_ID = "G-5QRDG8ZXJ0";
 
 const geistSans = Geist({

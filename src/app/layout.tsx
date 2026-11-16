@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const SITE_URL = "https://restorasibumi.org";
+const GA_MEASUREMENT_ID = "G-5QRDG8ZXJ0";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,20 +31,20 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://www.restorasibumi.org"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Restorasi Bumi | Membangun Masa Depan yang Lebih Hijau",
     description: "Bergabunglah bersama kami dalam misi memulihkan bumi dan memberdayakan manusia.",
-    url: "https://www.restorasibumi.org",
+    url: SITE_URL,
     siteName: "Restorasi Bumi",
     images: [
       {
-        url: "/og-image.jpg", // Assuming we will create or mapping to an existing image
-        width: 1200,
-        height: 630,
+        url: "/logo.png",
+        width: 1024,
+        height: 1024,
         alt: "Restorasi Bumi - ReGen Series",
       },
     ],
@@ -48,10 +52,10 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Restorasi Bumi",
     description: "Membangun Masa Depan yang Lebih Hijau melalui ReGen Earth, Humanity, dan Future.",
-    images: ["/og-image.jpg"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -79,13 +83,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LanguageProvider>
           {children}
         </LanguageProvider>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -93,8 +109,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "NGO",
               "name": "Restorasi Bumi",
-              "url": "https://www.restorasibumi.org",
-              "logo": "https://www.restorasibumi.org/logo.png",
+              "url": SITE_URL,
+              "logo": `${SITE_URL}/logo.png`,
               "sameAs": [
                 "https://www.instagram.com/restorasibumi",
                 "https://www.linkedin.com/company/restorasibumi"

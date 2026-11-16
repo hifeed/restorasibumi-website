@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: '/api/',
         },
-        sitemap: 'https://www.restorasibumi.org/sitemap.xml',
+        sitemap: 'https://restorasibumi.org/sitemap.xml',
+        host: 'https://restorasibumi.org',
     }
 }
